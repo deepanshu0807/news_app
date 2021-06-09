@@ -1,0 +1,48 @@
+name: news_app
+description: A new Flutter project.
+
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  flutter_screenutil:
+  google_fonts:
+  clipboard:
+  share_plus:
+  flutter_spinkit:
+  http: ^0.12.0+4
+  cached_network_image:
+  parallax_animation:
+  flutter_typeahead:
+  url_launcher:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons:
+
+  # flutter_lints: ^1.0.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/logo.png"
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - images/
+
+
