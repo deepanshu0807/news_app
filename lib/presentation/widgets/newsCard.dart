@@ -84,80 +84,71 @@ class EvenNewsCard extends StatelessWidget {
             horizontalSpaceSmall,
             Expanded(
               flex: 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      // color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.white,
-                          Colors.white.withOpacity(0.2),
-                          Colors.deepPurple.withOpacity(0.4),
-                        ],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.secondaryColor.withOpacity(0.1),
-                          blurRadius: 30.0,
-                          offset: Offset(0, 10),
-                        ),
-                      ],
-                    ),
-                    child: Text(
-                      widget.news.title,
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
-                      style: text16,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      if (widget.news.author != null)
-                        Container(
-                          width: 120.w,
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: AppColors.secondaryColor,
-                          ),
-                          child: Text(
-                            widget.news.author,
-                            overflow: TextOverflow.ellipsis,
-                            style: text16.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      FlatButton(
-                        minWidth: 0,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                              builder: (context) => NewsDetail(
-                                news: widget.news,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "Read",
-                          style: text16.copyWith(color: Colors.white),
-                        ),
-                        color: AppColors.primaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      )
+              child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white,
+                      Colors.white.withOpacity(0.2),
+                      Colors.deepPurple.withOpacity(0.4),
                     ],
-                  )
-                ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.secondaryColor.withOpacity(0.1),
+                      blurRadius: 30.0,
+                      offset: Offset(0, 10),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        widget.news.title,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: text16.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 150.w,
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.source_outlined,
+                                color: Colors.black,
+                                size: 18,
+                              ),
+                              horizontalSpaceTiny,
+                              Expanded(
+                                child: Text(
+                                  widget.news.author ?? "Source",
+                                  overflow: TextOverflow.ellipsis,
+                                  style:
+                                      text16.copyWith(color: Colors.grey[800]),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_right_outlined,
+                          color: AppColors.primaryColor,
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ],
@@ -188,79 +179,71 @@ class OddNewsCard extends StatelessWidget {
           children: [
             Expanded(
               flex: 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.white,
-                          Colors.white.withOpacity(0.2),
-                          Colors.deepPurple.withOpacity(0.4),
-                        ],
-                        begin: Alignment.centerRight,
-                        end: Alignment.centerLeft,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.secondaryColor.withOpacity(0.1),
-                          blurRadius: 30.0,
-                          offset: Offset(0, 10),
-                        ),
-                      ],
-                    ),
-                    child: Text(
-                      widget.news.title,
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
-                      style: text16,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      if (widget.news.author != null)
-                        Container(
-                          width: 120.w,
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: AppColors.secondaryColor,
-                          ),
-                          child: Text(
-                            widget.news.author,
-                            overflow: TextOverflow.ellipsis,
-                            style: text16.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      FlatButton(
-                        minWidth: 0,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                              builder: (context) => NewsDetail(
-                                news: widget.news,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "Read",
-                          style: text16.copyWith(color: Colors.white),
-                        ),
-                        color: AppColors.primaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      )
+              child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white,
+                      Colors.white.withOpacity(0.2),
+                      Colors.deepPurple.withOpacity(0.3),
                     ],
-                  )
-                ],
+                    begin: Alignment.centerRight,
+                    end: Alignment.centerLeft,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.secondaryColor.withOpacity(0.1),
+                      blurRadius: 30.0,
+                      offset: Offset(0, 10),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        widget.news.title,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: text16.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 150.w,
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.source_outlined,
+                                color: Colors.black,
+                                size: 18,
+                              ),
+                              horizontalSpaceTiny,
+                              Expanded(
+                                child: Text(
+                                  widget.news.author ?? "Source",
+                                  overflow: TextOverflow.ellipsis,
+                                  style:
+                                      text16.copyWith(color: Colors.grey[800]),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_right_outlined,
+                          color: AppColors.primaryColor,
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             horizontalSpaceSmall,
